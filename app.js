@@ -1,11 +1,10 @@
 import express from 'express';
 import path from 'path';
-import bodyParses from 'body-parser';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 import passport from 'passport';
 import mongoose from 'mongoose';
 import config from './backend/config/database';
-import users from './backend/routes/users';
 
 // Set up mongoose connection
 mongoose.Promise = global.Promise;
@@ -23,28 +22,20 @@ const app = express();
 // Port Number
 const port = 3000;
 
-// CORS Middleware
-app.use(cors());
-
-// Set Static Folder
-app.use(express.static(path.join(__dirname, 'dist')));
-
 // Body Parser Middleware
-app.use(bodyParses.json());
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-require('./backend/config/passport')(passport);
-
-app.use('/users', users);
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
 
 // Index Route
 app.get('/', (req, res) => {
-    res.send('Invalid Endpoint');
+    res.json({"message": "Welcome to EasyUsers application. Take user quickly."});
 });
-app.use(express.json());
+
+require('./backend/routes/user.routes')(app)
+
 // Start Server
 app.listen(port, () => {
     console.log('Server started on port: ' + port);
