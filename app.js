@@ -20,7 +20,7 @@ mongoose.connect(config.database, { useNewUrlParser: true })
 const app = express();
 
 // Port Number
-const port = 3000;
+const port = 4000;
 
 // Body Parser Middleware
 // parse requests of content-type - application/x-www-form-urlencoded

@@ -13,7 +13,7 @@ module.exports = {
         
         // Skip any files outside of your project's `frontend` directory
         include: [
-          path.resolve(__dirname, 'angular-src'),
+          path.resolve(__dirname, 'frontend'),
         ],
         
         // Only run `.js` files through Babel
