@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { MatToolbarModule, 
   MatFormFieldModule, 
   MatInputModule, 
@@ -8,10 +8,12 @@ import { MatToolbarModule,
   MatIconModule, 
   MatButtonModule, 
   MatCardModule, 
-  MatTableModule, 
   MatDividerModule, 
   MatSnackBarModule } from '@angular/material';
 
+
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { ListComponent } from './components/list/list.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { GetComponent } from './components/get/get.component';
 import { UserService } from './user.service';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   { 
@@ -49,7 +52,11 @@ const routes: Routes = [
     component: ListComponent,
     data: { title: 'List of users' }
   },
-  { path: '', redirectTo: '/profiles', pathMatch: 'full'}
+  { 
+    path: '', 
+    redirectTo: '/profiles', 
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
@@ -64,6 +71,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     MatToolbarModule,

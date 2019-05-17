@@ -29,6 +29,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("content-type","application/json");
+    res.header("access-control-allow-headers", "origin", 
+        "x-requested-with", "accept");
+    next();
+});
+  
 // Index Route
 app.get('/', (req, res) => {
     res.json({"message": "Welcome to EasyUsers application. Take user quickly."});
