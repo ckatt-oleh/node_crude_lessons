@@ -1,3 +1,28 @@
-<p>
-  edit works!
-</p>
+<div>
+    <br>
+    <mat-card>
+      <section class="mat-typography">
+          <h3>Update User</h3>
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="updateForm" class="edit-form">
+        <mat-form-field class="field-full-width">
+          <input placeholder="Name" matInput formControlName="name" #name>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <input placeholder="Email" matInput formControlName="email" #email>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+            <input placeholder="Username" matInput formControlName="username" #username>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+            <input placeholder="Password" matInput formControlName="password" #password>
+        </mat-form-field>  
+        <mat-divider></mat-divider>
+        <br><br>
+        <button mat-raised-button color="accent" routerLink="/profiles">Back</button>&nbsp;
+        <button type="submit" (click)="addUser(name.value, email.value, username.value, password.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+      </form>
+    </mat-card>
+</div>

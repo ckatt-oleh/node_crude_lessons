@@ -33,7 +33,7 @@ export class ListComponent implements OnInit {
   }
 
   editUser(id) {
-    this.router.navigate([`/edit/${id}`]);
+    this.router.navigate([`/profile/${id}`]);
   }
 
   deleteUser(id) {

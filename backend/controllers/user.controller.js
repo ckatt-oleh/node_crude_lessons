@@ -69,7 +69,7 @@ exports.findByName = (req, res) => {
 };
 
 // Find a single user with a userId
-exports.findOne = (req, res) => {
+exports.findOneUser = (req, res) => {
     User.findById(req.params.userId)
         .then(user => {
             if(!user) {

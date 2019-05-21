@@ -26,7 +26,7 @@ export class CreateComponent implements OnInit {
     addUser(name, email, username, password){
       this.userService.addUser(name, email, username, password)
         .subscribe(() => {
-          this.router.navigate(['/list'])
+          this.router.navigate(['/profiles']);
         });
     }
 

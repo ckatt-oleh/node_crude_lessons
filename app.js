@@ -1,8 +1,6 @@
 import express from 'express';
-import path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import passport from 'passport';
 import mongoose from 'mongoose';
 import config from './backend/config/database';
 
@@ -18,10 +16,12 @@ mongoose.connect(config.database, { useNewUrlParser: true })
     });
 
 const app = express();
+const router = express.Router();
 
 // Port Number
 const port = 4000;
 
+app.use(cors());
 // Body Parser Middleware
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,6 +31,8 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
     res.header("content-type","application/json");
     res.header("access-control-allow-headers", "origin", 
         "x-requested-with", "accept");
@@ -44,6 +46,7 @@ app.get('/', (req, res) => {
 
 require('./backend/routes/user.routes')(app)
 
+app.use('/', router);
 // Start Server
 app.listen(port, () => {
     console.log('Server started on port: ' + port);

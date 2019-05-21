@@ -13,16 +13,16 @@ module.exports = backend => {
     backend.get('/profiles', users.findAll);
 
     // Retrieve a single user with userId
-    backend.get('/profile/:userId', users.findOne);
+    backend.get('/profile/:id', users.findOneUser);
 
     // Retrieve a single user by username
     backend.get('/profile', users.findByName);
 
     // Update a User with userId
-    backend.put('/profile/:userId', users.update);
+    backend.put('/profile/update/:id', users.update);
 
     // Delete a User with userId
-    backend.delete('/profile/:userId', users.delete);
+    backend.delete('/profile/delete/:id', users.delete);
 }
 
 
