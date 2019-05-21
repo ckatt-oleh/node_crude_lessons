@@ -7,7 +7,11 @@ import config from './backend/config/database';
 // Set up mongoose connection
 mongoose.Promise = global.Promise;
 
-mongoose.connect(config.database, { useNewUrlParser: true })
+mongoose.connect(config.database, 
+    { 
+        useNewUrlParser: true, 
+        useFindAndModify: false
+    })
     .then(() => {
         console.log("Successfully connected to the database");    
     }).catch(err => {

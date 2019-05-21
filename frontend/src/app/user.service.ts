@@ -35,10 +35,10 @@ export class UserService {
       username: username,
       password: password
     };
-    return this.http.put(`${this.uri}/profile/${id}`, user);
+    return this.http.put(`${this.uri}/profile/update/${id}`, user);
   }
 
   deleteUser(id){
-    return this.http.delete(`${this.uri}/profile/${id}`);
+    return this.http.delete(`${this.uri}/profile/delete/${id}`);
   }
 }

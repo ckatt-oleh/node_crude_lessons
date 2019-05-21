@@ -34,17 +34,17 @@ const routes: Routes = [
     data: { title: 'Create User' }
   },
   { 
-    path: 'profile/:userId', 
+    path: 'profile/:id', 
     component: EditComponent,
     data: { title: 'Edit User' }
   },
   {
-    path: 'profile/:userId',
+    path: 'profile/:id',
     component: GetComponent,
     data: { title: 'Get User' }
   },
   {
-    path: 'profile/:userId',
+    path: 'profile/:id',
     component: DeleteComponent,
     data: { title: 'Delete User' }
   },

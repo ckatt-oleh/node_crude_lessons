@@ -22,7 +22,7 @@
         <mat-divider></mat-divider>
         <br><br>
         <button mat-raised-button color="accent" routerLink="/profiles">Back</button>&nbsp;
-        <button type="submit" (click)="addUser(name.value, email.value, username.value, password.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+        <button type="submit" (click)="updateUser(name.value, email.value, username.value, password.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary" routerLink="/profiles">Save</button>
       </form>
     </mat-card>
 </div>
