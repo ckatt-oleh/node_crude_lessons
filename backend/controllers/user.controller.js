@@ -19,24 +19,16 @@ exports.create = (req, res) => {
 
     // Save User in the database
     user.save()
-    .then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred while creating the User."
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while creating the User."
+            });
         });
-    });
 
 };
-// module.exports.addUser = (newUser, callback) => {
-//     bcrypt.genSalt(10, (err, salt) => {
-//         bcrypt.hash(newUser.password, salt, (err, hash) => {
-//             if(err) throw err;
-//             newUser.password = hash;
-//             newUser.save(callback);
-//         });
-//     });
-// };
 
 // Retrieve and return all users from the database.
 exports.findAll = (req, res) => {
@@ -89,26 +81,6 @@ exports.findOneUser = (req, res) => {
             });
         });
 };
-// module.exports.getUserById = function(id, callback){
-//     User.findById(id, callback);
-// };
-
-
-
-
-// module.exports.getUserByUsername = function(userName, callback){
-//     const query = {userName: userName}
-//     User.findByOne(query, callback);
-// };
-
-
-
-// module.exports.comparePassword = (candidatePassword, hash, callback) => {
-//     bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
-//         if(err) throw err;
-//         callback(null, isMatch);
-//     });
-// }
 
 // Update a user identified by the userId in the request
 exports.update = (req, res) => {

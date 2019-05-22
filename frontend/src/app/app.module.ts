@@ -1,19 +1,7 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { MatToolbarModule, 
-  MatFormFieldModule, 
-  MatInputModule, 
-  MatOptionModule, 
-  MatSelectModule, 
-  MatIconModule, 
-  MatButtonModule, 
-  MatCardModule, 
-  MatDividerModule, 
-  MatSnackBarModule } from '@angular/material';
-
-
-import { MatTableModule } from '@angular/material/table';
+import { MyMaterialModule } from './material-module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -75,17 +63,7 @@ const routes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatTableModule,
-    MatDividerModule,
-    MatSnackBarModule,
+    MyMaterialModule,
     ReactiveFormsModule
   ],
   providers: [UserService],
