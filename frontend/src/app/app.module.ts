@@ -14,6 +14,7 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { GetComponent } from './components/get/get.component';
 import { UserService } from './user.service';
 import { from } from 'rxjs';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { 
@@ -55,7 +56,8 @@ const routes: Routes = [
     EditComponent,
     ListComponent,
     DeleteComponent,
-    GetComponent
+    GetComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

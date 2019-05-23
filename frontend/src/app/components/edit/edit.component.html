@@ -6,7 +6,7 @@
       </section>
       <mat-divider></mat-divider>
       <br>
-      <form [formGroup]="updateForm" class="edit-form">
+      <form [formGroup]="updateForm" class="container">
         <mat-form-field class="field-full-width">
           <input placeholder="Name" matInput formControlName="name" #name>
         </mat-form-field>
@@ -21,8 +21,8 @@
         </mat-form-field>  
         <mat-divider></mat-divider>
         <br><br>
-        <button mat-raised-button color="accent" routerLink="/profiles">Back</button>&nbsp;
-        <button type="submit" (click)="updateUser(name.value, email.value, username.value, password.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary" routerLink="/profiles">Save</button>
+        <button class="button-small" mat-raised-button color="accent" routerLink="/profiles">Back</button>&nbsp;
+        <button class="button-small" type="submit" (click)="updateUser(name.value, email.value, username.value, password.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary" routerLink="/profiles">Save</button>
       </form>
     </mat-card>
 </div>
