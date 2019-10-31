@@ -13,7 +13,7 @@
     "cors": "*",
     "express": "^4.16.4",
     "jsonwebtoken": "*",
-    "mongoose": "^5.5.8",
+    "mongoose": "^5.7.5",
     "passport": "*",
     "passport-jwt": "*"
   },
